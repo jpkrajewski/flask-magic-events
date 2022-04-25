@@ -1,0 +1,30 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Successful registration{% endblock %}
+
+{% block navbar %}
+{% include "navbar.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+      <div class="col-6">
+        <h1 class="display-4">Successful registration</h1>
+        <p>Feel the magic, see the magic, touch the magic</p>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <h2>Event details</h2>
+            <ul class="list-group">
+              <li class="list-group-item">Title: {{ event.title }}</li>
+              <li class="list-group-item">Starting: {{ event.start.strftime('%d/%m/%Y') }}</li>
+              <li class="list-group-item">Ending: {{ event.end.strftime('%d/%m/%Y') }}</li>
+            </ul>
+            <h2>Your management code is: <a href="{{ url_for('manage', code=code) }}">{{ code }}</a></h2>
+          </div>
+      </div>
+      </div>
+    </div>
+</div>
+{% endblock %}

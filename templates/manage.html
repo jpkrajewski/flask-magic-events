@@ -1,0 +1,39 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Manage your reservation{% endblock %}
+
+{% block navbar %}
+{% include "navbar.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+      <div class="col-8">
+        <h1 class="display-4">Manage your reservation</h1>
+        <p>Feel the magic, see the magic, touch the magic</p>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <h2>Person details</h2>
+            <ul class="list-group">
+              <li class="list-group-item">Name: {{ reservation.name }}</li>
+              <li class="list-group-item">Email: {{ reservation.email }}</li>
+              <li class="list-group-item">Phone: {{ reservation.phone }}</li>
+            </ul>
+            <h2>Event details</h2>
+            <ul class="list-group">
+              <li class="list-group-item">Title: {{ event.title }}</li>
+              <li class="list-group-item">Starting: {{ event.start.strftime('%d/%m/%Y') }}</li>
+              <li class="list-group-item">Ending: {{ event.end.strftime('%d/%m/%Y') }}</li>
+            </ul>
+            <h2>Cancellation</h2>
+            {% if can_cancel %}
+            <a href="{{ url_for('delete', id_=reservation.id, code=reservation.code) }}">Click here to cancel reservation </a>
+            {% else %}
+                {{ message }}
+                {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

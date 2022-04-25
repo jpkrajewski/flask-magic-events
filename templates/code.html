@@ -1,0 +1,27 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}This is an example page{% endblock %}
+
+{% block navbar %}
+{% include "navbar.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10">
+        <h1 class="display-4">Insert your management code</h1>
+        <p>Feel the magic, see the magic, touch the magic</p>
+      </div>
+      <div class="col-lg-8 col-md-10">
+        <form action="{{ url_for('manage') }}" method="GET">
+        <div class="form-group">
+          <label for="codeInput">Management Code</label>
+          <input type="text" name="code" class="form-control" id="codeInput" placeholder="Type you code here...">
+          {% if message %}
+          <p style="color:red">{{ message }}</p>
+          {% endif %}
+        </div>
+          <button type="submit" class="btn btn-primary">Open management page</button>
+      </form>
+      </div>
+        {% endblock %}
