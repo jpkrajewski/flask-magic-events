@@ -1,7 +1,7 @@
 # flask-magic-events
 Automated system that allows customers to do most of the work themselves.
 
-##Implement minimal event registration platform.
+## Implement minimal event registration platform.
 
 The Story of Magic Events company
 
